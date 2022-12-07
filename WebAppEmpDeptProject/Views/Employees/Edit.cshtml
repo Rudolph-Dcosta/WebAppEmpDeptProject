@@ -1,0 +1,35 @@
+﻿@model EmpDeptProject.Models.Employee
+@{
+    ViewData["Title"] = "Edit Employee";
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit Employee</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="EmpName"></label>
+            <input asp-for="EmpName" class="form-control" />
+            <span asp-validation-for="EmpName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="EmpSal"></label>
+            <input asp-for="EmpSal" class="form-control" />
+            <span asp-validation-for="EmpSal" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DeptId">Department Name</label>
+            <select asp-for="DeptId" class="form-control" asp-items="ViewBag.Departments"></select>
+            <span asp-validation-for="DeptId" class="text-danger"></span>
+        </div>
+        <button class="btn btn-primary" style="width:150px">Submit</button>
+        <a asp-controller="Employees" asp-action="Index" class="btn btn-secondary" style="width:150px">Back</a>
+    </div>
+</form>
+@section Scripts
+    {
+    <partial name="_ValidationScriptsPartial.cshtml" />
+}
+
